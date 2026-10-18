@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0f1a;
+  --foreground: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Slim dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Streaming caret */
+.streaming-caret::after {
+  content: "▍";
+  color: #818cf8;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Markdown-ish chat text */
+.chat-text p {
+  margin: 0.5em 0;
+}
+.chat-text p:first-child {
+  margin-top: 0;
+}
+.chat-text p:last-child {
+  margin-bottom: 0;
+}
+.chat-text code {
+  background: #1e293b;
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+.chat-text pre {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.75em;
+  overflow-x: auto;
+  font-size: 0.85em;
+}
+.chat-text pre code {
+  background: transparent;
+  padding: 0;
+}
+.chat-text ul {
+  list-style: disc;
+  padding-left: 1.25em;
+  margin: 0.5em 0;
+}
+.chat-text ol {
+  list-style: decimal;
+  padding-left: 1.25em;
+  margin: 0.5em 0;
+}
